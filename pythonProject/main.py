@@ -1,20 +1,47 @@
-# This is a sample Python script.
+from random import randint
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+a=randint(0,9)
+b=randint(0,9)
+c=randint(0,9)
+d=randint(0,9)
+st0 = str(a) + str(b) + str(c) + str(d)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+num = 0
+while True:
+    num += 1
+    print("номер попытки: ", num)
+    st = input("ведите число из 4х цифр:")
+    if st == ("ответ"):
+        print(st0)
+        continue
+    if len(st) != 4:
+        print ("должно быть 4 цифры")
+        continue
+    Is=list(st)
+    Is0 = list(st0)
 
+    bulls = 0
+    for j in range(4):
+        if Is [j] == Is0[j]:
+            bulls += 1
+            Is[j] = ("")
+            Is0[j] = ("*")
 
-print(adi)
-print (12)
+    if bulls == 4:
+        print("вы угадали")
+        break
+
+    cows = 0
+    for j in range(4):
+        n = Is [j]
+        for k in range(4):
+            if n == Is0[k]:
+                cows += 1
+                Is0[k] = ("*")
+                break
+
+    print("быков: ", bulls)
+    print("коров: ",cows)
+
